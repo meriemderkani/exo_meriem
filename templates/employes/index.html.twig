@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La liste des employes{% endblock %}
+
+{% block body %}
+<style>
+i {
+    cursor: pointer;
+}
+    
+</style>
+
+<div class="container">
+    <h1>La liste des employes</h1>
+    <br><br><br>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Téléphone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Adresse</th>
+      <th scope="col">Poste</th>
+      <th scope="col">Salaire</th>
+      <th scope="col">Date de naissance</th>
+      <th scope="col">Option</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for employe in employes %}
+
+    <tr>
+      <td>{{ employe.id }}</td>
+      <td>{{ employe.prenom }}</td>
+      <td>{{ employe.nom }}</td>
+      <td>{{ employe.telephone }}</td>
+      <td>{{ employe.email }}</td>
+      <td>{{ employe.adresse }}</td>
+      <td>{{ employe.poste }}</td>
+      <td>{{ employe.salaire }}</td>
+      <td>{{ employe.datedenaissance|date('d/m/Y à H:i:s') }}</td>
+      <td class="d-flex justify-content-between"><a href="{{ path('employe_edit', {id: employe.id}) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a href="{{ path('delete', {id: employe.id}) }}"><i class="fa fa-trash" aria-hidden="true"></i> </a></td>
+    </tr>
+    
+		{% endfor %}
+  </tbody>
+</table>
+<a href="{{ path('employe_create') }}" class="btn btn-lg btn-success">Ajouter</a>
+</div>
+{% endblock %}

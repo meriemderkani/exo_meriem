@@ -1,0 +1,81 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	<h1>
+		{% if editMode %}
+			Modification d'un employe
+		{% else %}
+			Création d'un employe
+		{% endif %}
+	</h1>
+
+<div class="container">
+	
+	{{ form_start(formemploye, {
+        attr: {
+            novalidate: 'novalidate'
+        }
+        })
+    }}
+
+	{{ form_row(formemploye.nom, {
+                label: "Nom",
+                attr: {
+                    placeholder: "Nom de l'employe"
+                }
+            }) }}
+	{{ form_row(formemploye.prenom, {
+                label: "Prenom",
+                attr: {
+                    placeholder: "Prenom de l'employe"
+                }
+            }) }}
+{{ form_row(formemploye.telephone, {
+                label: "telephone",
+                attr: {
+                    placeholder: "telephone de l'employe"
+                }
+            }) }}
+			{{ form_row(formemploye.email, {
+                label: "email",
+                attr: {
+                    placeholder: "email de l'employe"
+                }
+            }) }}
+			{{ form_row(formemploye.adresse, {
+                label: "adresse",
+                attr: {
+                    placeholder: "adresse de l'employe"
+                }
+            }) }}
+			{{ form_row(formemploye.poste, {
+                label: "poste",
+                attr: {
+                    placeholder: "poste de l'employe"
+                }
+            }) }}
+			{{ form_row(formemploye.salaire, {
+                label: "salaire",
+                attr: {
+                    placeholder: "salaire de l'employe"
+                }
+            }) }}
+			{{ form_row(formemploye.datedenaissance, {
+                label: "datedenaissance",
+                attr: {
+                    placeholder: "datedenaissance de l'employe"
+                }
+            }) }}
+
+		<button type="submit" class="btn btn-primary mt-2"> {% if editMode %}
+			Modifier
+		{% else %}
+			Ajouter
+		{% endif %}
+	</button>
+
+	{{ form_end(formemploye) }}
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!
+{% endblock %}
+
+{% block body %}
+
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success text-center">{{ message }}</div>
+	{% endfor %}
+
+	<section class="row employe">
+		<employe
+			class="col-md-3 mx-auto text-center border border-dark mb-3 p-3 mt-3 mr-1">
+			{# SYMPHONY accède à la propriété title de l'objet employe via son GETTER #}
+			<h2>{{ employe.prenom }}</h2>
+			<h2>{{ employe.nom }}</h2>
+			<h2>{{ employe.telephone }}</h2>
+			<h2>{{ employe.email }}</h2>
+			<h2>{{ employe.adresse }}</h2>
+			<h2>{{ employe.poste }}</h2>
+			<h2>{{ employe.salaire }}</h2>
+			{# date() est un filtre TWIG permettant de formater/convertir un objet DateTime en une chaîne de caractères #}
+			<div class="metadata">Ecrit le
+				{{ employe.datedenaissance|date('d/m/Y à H:i:s') }}
+				dans la catégorie politique</div>
+		</employe>
+	</section>
+{% endblock %}
