@@ -1,0 +1,16 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "askForPassword": true,
+            "driver": "MySQL",
+            "connectString": "mysql://l3esldrbd5zzx3r8:c25g4orl8tx51ph7@nuepp3ddzwtnggom.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/e68zte7vbx30sg2a",
+            "name": "exodb"
+        }
+    ]
+}
